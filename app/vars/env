@@ -1,0 +1,31 @@
+<?php
+// Enviroment specific variables
+// rename to env.php for use
+
+// General db usage
+putenv("DB_DSN=");
+putenv("DB_USERNAME=");
+putenv("DB_PASSWORD=");
+putenv("SCHEMA=");
+putenv("INT_SCHEMA=");
+putenv("SCHEMA_OBJECTS=");
+
+// Toolkit db connection
+putenv("TK_DB_DSN=");
+putenv("TK_DB_USERNAME=");
+putenv("TK_DB_PASSWORD=");
+
+// Mail
+putenv("MAIL_HOST=");
+putenv("MAIL_USERNAME=");
+putenv("MAIL_PASSWORD=");
+putenv("MAIL_PORT=");
+
+// Google
+putenv("GOOGLE_CAPTCHA_PRIVATE_KEY=");
+
+// Site vars
+putenv("ENV=DEV");
+putenv("BASE_DIR=/script/JDS-PHP-FRAMEWORK/public/");
+putenv("SITE_URL=http://localhost/script/JDS-PHP-FRAMEWORK/public/");
+?>
