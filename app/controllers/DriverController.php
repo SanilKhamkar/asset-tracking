@@ -10,16 +10,12 @@ class DriverController {
         ]);
     }
 
-<<<<<<< HEAD
-    public function driversnames() {
-=======
+
     public function alldrivers() {
->>>>>>> dev
         $driverarray = ['Zhou', 'Magnussen', 'Albon', 'Schumacher', 'Stroll', 'Tsunoda', 'Ocon', 'Vettel', 'Latifi', 'Verstappen', 'Hamilton', 'Norris', 'Riccardo', 'Russel', 'Sainz', 'Leclerc', 'Bottas', 'Perez', 'Gasly', 'Alonso'];
 
         return $driverarray;
     }
-<<<<<<< HEAD
 
     //write data to csv
     public function writedata() {
@@ -52,7 +48,4 @@ class DriverController {
             fclose($handle);
         }
     }
-
-=======
->>>>>>> dev
 }

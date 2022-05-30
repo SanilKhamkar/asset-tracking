@@ -25,55 +25,8 @@ $this->layout('template::main', [
 
 <div class="container mt-5">
     <div class="row">
-<<<<<<< HEAD
-        <!-- <div class="col-md-3 border">
-=======
-        <div class="col-md-3 border">
->>>>>>> dev
-            <div class="card text-dark bg-light mb-3">
-                <div class="card-header text-center" style="background: #98dbed">COMMON DRIVERS</div>
-                <div class="card-body shadow-sm text-white bg-dark">
-                    <h5 class="card-title">INPUT YOUR CURRENT ASSESTS</h5>
-                </div>
-
-            
-<<<<<<< HEAD
-                <form class="needs-validation" action="<?//= App::path('/home') ?>" method="get" novalidate>
-                <?php
-                    //foreach($drivers as $value) {
-=======
-                <form class="needs-validation" action="<?= App::path('/home') ?>" method="get" novalidate>
-                <?php
-                    foreach($drivers as $value) {
->>>>>>> dev
-                ?>
-                    <div class="card-body">
-                        <div class="row">
-                            <label for="inputPassword" class="col-sm-6 col-form-label"><?=$value?></label>
-                            <div class="col-sm-6">
-                                <input class="form-control" value="0" type="text" placeholder="Default input" aria-label="default input example">
-                            </div>
-                        </div>
-                    </div>
-                <?php 
-<<<<<<< HEAD
-                    //}
-=======
-                    }
->>>>>>> dev
-                ?>
-                <button type="submit" class="btn btn-primary mt-3">Search</button>
-                </form>
-            </div>
-        </div>
-<<<<<<< HEAD
- -->
-        <div class="col-md-4 border">
-            <form class="needs-validation" action="<?= App::path('/') ?>" method="get" novalidate>
-=======
-
         <div class="col-md-6 border">
->>>>>>> dev
+            <form class="needs-validation" action="<?= App::path('/') ?>" method="get" novalidate>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thread>
@@ -81,7 +34,6 @@ $this->layout('template::main', [
                             <th scope="col">Drivers</th>
                             <th scope="col">Value</th>
                         </tr>
-<<<<<<< HEAD
                     </thread>        
                     
                     <div class="card text-dark bg-light mb-3">
@@ -104,25 +56,5 @@ $this->layout('template::main', [
             <button type="submit" class="btn btn-primary mt-3">Search</button>
             </form>
         </div>
-
-
-=======
-                    </thread>         
-                    <?php    
-                        foreach($drivers as $value) {
-                    ?>
-                    <tbody>
-                        <tr>
-                            <td><label for="inputPassword" class="col-sm-6 col-form-label"><?=$value?></label></td>
-                            <td><input class="form-control" value="0" type="text" placeholder="Default input" aria-label="default input example"></td>
-                        </tr>
-                    </tbody>
-                    <?php
-                        }
-                    ?>
-                </table>
-            </div>
-        </div>
->>>>>>> dev
     </div>
 </div>
