@@ -4,12 +4,13 @@ class DriverController {
               
         $drivers = $this->alldrivers();
 
+        $driverdata = $this->writedata();
+
         return App::view('home', [
             'drivers' => $drivers,
             'pageTitle' => 'Home',
         ]);
     }
-
 
     public function alldrivers() {
         $driverarray = ['Zhou', 'Magnussen', 'Albon', 'Schumacher', 'Stroll', 'Tsunoda', 'Ocon', 'Vettel', 'Latifi', 'Verstappen', 'Hamilton', 'Norris', 'Riccardo', 'Russel', 'Sainz', 'Leclerc', 'Bottas', 'Perez', 'Gasly', 'Alonso'];
@@ -21,23 +22,28 @@ class DriverController {
     public function writedata() {
 
         $filename = "commons.csv";
-
-        //check if file exists
+ 
+        //if file exists, open it and append data to it 
         if(file_exists($filename)) {
             $data = $this->readdata($filename);
         }
+        //create new file, write data to the file
         else {
-
+            //check data from form
+            if(isset($_POST['common_drivers'])){
+                $fp = fopen($filename, 'w');
+                fputcsv($fp, $_POST['common_drivers']);
+            }
         }
     }
 
     //read data from csv
-    public function readdata() {
+    public function readdata($filename) {
         $header = null;
         $data = array();
         if (($handle = fopen($filename, 'r')) !== false)
         {
-            while (($row = fgetcsv($handle, 30000, ",")) !==false)
+            while (($row = fgetcsv($handle, 30000, ",")) !== false)
             {
                 if(!$header) {
                     $header = $row;
