@@ -9,8 +9,8 @@
 //     return App::view('home');
 // });
 
-$routes->get('/', [DriverController::class, 'index']);
-// $routes->post('/tester', [TestController::class, 'index']);
+$routes->get('/home', [DriverController::class, 'index']);
+$routes->post('/home', [DriverController::class, 'index']);
 
 // Check if valid route
 $routes->checkRoute();
