@@ -25,8 +25,8 @@ $this->layout('template::main', [
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-6 border">
-            <form class="needs-validation" action="<?= App::path('/') ?>" method="get" novalidate>
+        <div class="col-md-4 border">
+            <form class="needs-validation" action="<?= App::path('/home') ?>" method="post" novalidate>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thread>
@@ -44,7 +44,7 @@ $this->layout('template::main', [
                         <tbody>
                             <tr>
                                 <td><label for="inputPassword" class="col-sm-6 col-form-label"><?=$value?></label></td>
-                                <td><input class="form-control" value="0" type="text" placeholder="Default input" aria-label="default input example"></td>
+                                <td><input class="form-control" name="common_drivers" value="0" type="text" placeholder="0" aria-label="default input example"></td>
                             </tr>
                         </tbody>
                         <?php
