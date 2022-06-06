@@ -39,12 +39,13 @@ $this->layout('template::main', [
                     <div class="card text-dark bg-light mb-3">
                         <div class="card-header text-center" style="background: #98dbed">COMMON DRIVERS</div> 
                         <?php    
+                            $common = [];
                             foreach($drivers as $value) {
                         ?>
                         <tbody>
                             <tr>
-                                <td><label for="inputPassword" class="col-sm-6 col-form-label"><?=$value?></label></td>
-                                <td><input class="form-control" name="common_drivers" value="0" type="text" placeholder="0" aria-label="default input example"></td>
+                                <td><label for="textbox" class="col-sm-6 col-form-label"><?=$value?></label></td>
+                                <td><input class="form-control" name="common[<?=$value?>]" value="0" type="number" placeholder="0" aria-label="default input example"></td>
                             </tr>
                         </tbody>
                         <?php
@@ -55,6 +56,11 @@ $this->layout('template::main', [
             </div>
             <button type="submit" class="btn btn-primary mt-3">Search</button>
             </form>
+        </div>
+
+        <!-- Display test data -->
+        <div class="col">
+
         </div>
     </div>
 </div>
