@@ -21,20 +21,30 @@ class DriverController {
     //write data to csv
     public function writedata() {
 
-        $filename = "commons.csv";
+        //test data
+        $show = $_POST['common'];
+        
+        echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
+        foreach($show as $key=>$value){
+            echo $key ."=>". $value;
+            echo "<br>";
+        }
+        echo '</pre>';
+
+        // $filename = "commons.csv";
  
-        //if file exists, open it and append data to it 
-        if(file_exists($filename)) {
-            $data = $this->readdata($filename);
-        }
-        //create new file, write data to the file
-        else {
-            //check data from form
-            if(isset($_POST['common_drivers'])){
-                $fp = fopen($filename, 'w');
-                fputcsv($fp, $_POST['common_drivers']);
-            }
-        }
+        // //if file exists, open it and append data to it 
+        // if(file_exists($filename)) {
+        //     $data = $this->readdata($filename);
+        // }
+        // //create new file, write data to the file
+        // else {
+        //     //check data from form
+        //     if(isset($_POST['common_drivers'])){
+        //         $fp = fopen($filename, 'w');
+        //         fputcsv($fp, $_POST['common_drivers']);
+        //     }
+        // }
     }
 
     //read data from csv
