@@ -26,28 +26,43 @@ class DriverController {
         if(isset($_POST['common']) && !empty($_POST['common'])){
 
             $show = $_POST['common'];
-            $headers = array('Drivers', 'Value', 'Date');
+            //$headers = array('Drivers', 'Value');
             $date = date('m/d/Y');
 
-            //combine headers and rows
-            $result = array_map(function ($chunk) use ($headers) {
-                return array_combine($headers, $chunk);
-                }, array_chunk($show, count($headers))
-            );
+            $count = 0;
+            foreach($show as $key=>$value) {
+                $header[$count]['Driver'] = $key;
+                $header[$count]['Value'] = $value;
+                $count++;
+            }
 
 
-            
+
             //Print the array contents 
             echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
+
             // foreach($show as $key=>$value){
             //     echo $key ."=>". $value;
             //     echo "<br>";
-            // }
-            print_r($result);
+            //     $headers['Drivers'] = $key;
+            //     $headers['Value'] = $value;
+            //  }
+            // print_r($show);
+            // print_r($result); 
+            print_r($header);
+
             echo '</pre>';
+
+
 
             //file name
             $filename = "commons.csv";
+
+            if(isset($_POST['common'])){
+                $fp = fopen($filename, 'w');
+                foreach($header as $data)
+                    fputcsv($fp, $data);
+            }
      
             //if file exists, open it and append data to it 
             // if(file_exists($filename)) {
