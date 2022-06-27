@@ -25,59 +25,53 @@ class DriverController {
         //check if data is posted and not empty 
         if(isset($_POST['common']) && !empty($_POST['common'])){
 
-            $show = $_POST['common'];
-            //$headers = array('Drivers', 'Value');
-            $date = date('m/d/Y');
-
-            $count = 0;
-            foreach($show as $key=>$value) {
-                $header[$count]['Driver'] = $key;
-                $header[$count]['Value'] = $value;
-                $count++;
-            }
-
-
-
-            //Print the array contents 
-            echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
-
-            // foreach($show as $key=>$value){
-            //     echo $key ."=>". $value;
-            //     echo "<br>";
-            //     $headers['Drivers'] = $key;
-            //     $headers['Value'] = $value;
-            //  }
-            // print_r($show);
-            // print_r($result); 
-            print_r($header);
-
-            echo '</pre>';
-
-
-
             //file name
             $filename = "commons.csv";
 
-            if(isset($_POST['common'])){
-                $fp = fopen($filename, 'w');
-                foreach($header as $data)
-                    fputcsv($fp, $data);
-            }
-     
-            //if file exists, open it and append data to it 
-            // if(file_exists($filename)) {
-            //     $fp = fopen($filename, 'w');
-            //     foreach($show as $key=>$value){
-            //         //fputcsv($fp, $value);
+            $show = $_POST['common'];
+            $headers = array('Drivers', 'Value');
+            //$date = date('m/d/Y');
+
+            $count = 0;
+            // foreach($show as $key=>$value) {
+            //     $data[$count]['Driver'] = $key;
+            //     $data[$count]['Value'] = $value;
+            //     $count++;
+            // }           
+
+            // echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
+            // print_r($data);
+            // echo '</pre>';
+
+            //read data from csv
+            $csvdata = $this->readdata($filename);
+
+            print_r($csvdata);
+
+            //check if data is being posted and file exists
+            // if(isset($_POST['common']) && file_exists($filename)){
+            //     if(file_exists($filename)) {
+            //         echo "File Exists. Writing data to file";
+            //         $fp = fopen($filename, 'w');
+            //         fputcsv($fp, $headers);
+            //         foreach($data as $asset) {
+            //             fputcsv($fp, $asset);
+            //         }
+            //         fclose($fp);
             //     }
             // }
 
-            // //create new file, write data to the file
+            //create new file, write data to the file
             // else {
             //     //check data from form
-            //     if(isset($_POST['common'])){
+            //     if(isset($_POST['common'])){                    
             //         $fp = fopen($filename, 'w');
-            //         fputcsv($fp, $show);
+            //         echo "Creating new file. Writing data to file";
+            //         fputcsv($fp, $headers);
+            //         foreach($data as $asset){
+            //             fputcsv($fp, $asset);
+            //         }
+            //         fclose($fp);
             //     }
             // }
         }
@@ -99,5 +93,6 @@ class DriverController {
             }
             fclose($handle);
         }
+        return $data;
     }
 }
