@@ -29,15 +29,15 @@ class DriverController {
             $filename = "commons.csv";
 
             $show = $_POST['common'];
-            $headers = array('Drivers', 'Value', 'Date');
-            $date = date('m/d/Y');
+            $headers = array('Drivers', 'Value');
+            //$date = date('m/d/Y');
 
             $count = 0;
-            foreach($show as $key=>$value) {
-                $data[$count]['Driver'] = $key;
-                $data[$count]['Value'] = $value;
-                $count++;
-            }           
+            // foreach($show as $key=>$value) {
+            //     $data[$count]['Driver'] = $key;
+            //     $data[$count]['Value'] = $value;
+            //     $count++;
+            // }           
 
             // echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
             // print_r($data);
@@ -46,36 +46,34 @@ class DriverController {
             //read data from csv
             $csvdata = $this->readdata($filename);
 
-            //print_r($csvdata);
-
-            
+            print_r($csvdata);
 
             //check if data is being posted and file exists
-            if(isset($_POST['common']) && file_exists($filename)){
-                if(file_exists($filename)) {
-                    echo "File Exists. Writing data to file";
-                    $fp = fopen($filename, 'w');
-                    fputcsv($fp, $headers);
-                    foreach($data as $asset) {
-                        fputcsv($fp, $asset);
-                    }
-                    fclose($fp);
-                }
-            }
+            // if(isset($_POST['common']) && file_exists($filename)){
+            //     if(file_exists($filename)) {
+            //         echo "File Exists. Writing data to file";
+            //         $fp = fopen($filename, 'w');
+            //         fputcsv($fp, $headers);
+            //         foreach($data as $asset) {
+            //             fputcsv($fp, $asset);
+            //         }
+            //         fclose($fp);
+            //     }
+            // }
 
             //create new file, write data to the file
-            else {
-                //check data from form
-                if(isset($_POST['common'])){                    
-                    $fp = fopen($filename, 'w');
-                    echo "Creating new file. Writing data to file";
-                    fputcsv($fp, $headers);
-                    foreach($data as $asset){
-                        fputcsv($fp, $asset);
-                    }
-                    fclose($fp);
-                }
-            }
+            // else {
+            //     //check data from form
+            //     if(isset($_POST['common'])){                    
+            //         $fp = fopen($filename, 'w');
+            //         echo "Creating new file. Writing data to file";
+            //         fputcsv($fp, $headers);
+            //         foreach($data as $asset){
+            //             fputcsv($fp, $asset);
+            //         }
+            //         fclose($fp);
+            //     }
+            // }
         }
     }
 
