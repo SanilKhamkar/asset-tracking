@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Page Title -->
-        <title>JDS Industries - <?= $pageTitle ?></title>
+        <title><?= $pageTitle ?></title>
 
         <!-- SEO Tags -->
         <meta name="robots" content="max-snippet:-1,max-image-preview:standard,max-video-preview:-1" />
@@ -27,6 +27,27 @@
 
     </head>
     <body class="bg-light">
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="color: #cdd7e1; background: #4879b3; box-shadow: inset 100px 0px 100px -50px #062e71, inset -100px 0px 100px -50px #062e71; width: 100%;">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="<?= App::path('/home') ?>"  style="color: #8ec63f">DRIVERS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"  style="color: #cdd7e1">COMPONENTS</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="<?= App::path('/stats') ?>"  style="color: #cdd7e1">STATS</a>
+                </li>
+              </ul>
+              <span class="navbar-text" style="color: #cdd7e1"> 
+                ASSET TRACKING F1 CLASH
+              </span>
+            </div>
+          </div>
+        </nav>
 
         <!-- Main Content -->
         <?= $this->section('content') ?>
