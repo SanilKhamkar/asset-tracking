@@ -5,38 +5,40 @@ $this->layout('template::main', [
 ]);
 ?>
 
-<?php 
-    echo '<pre style="max-height:600px; overflow-y: auto; border:1px solid #000;">';
-    
-    foreach($drivers as $drivername=>$data) {
-        echo $drivername . '=>' . $data;
-    }
-
-    echo '</pre>';
-?>
-
 <div class="container">
-    <div class="row">
+    <div class="row mt-3">
+        <div class="col border-bottom border-info border-3">
+            <p class="fs-1">COMMON DRIVER STATS</p>
+        </div>
+    </div>
+
+    <div class="row mt-3">
         <?php 
             foreach($drivers as $drivername=>$data) {
+                //print_r($data);
         ?>
         <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title"><?=$drivername?></h5>
+                <h5 class="card-title border-bottom border-info border-3"><p class=""><?=$drivername?></p></h5>
                 <table class="table table-dark table-hover">
                     <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">Stats</th>
+                          <th scope="col">Values</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php 
+                            foreach($data['Stats'] as $stats=>$value) {
+                        ?>
                         <tr>
-                            <td></td>
+                            <td><?=$stats?></td>
+                            <td><?=$value?></td>
                         </tr>
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>
               </div>
