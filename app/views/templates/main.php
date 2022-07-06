@@ -41,6 +41,9 @@
                  <li class="nav-item">
                   <a class="nav-link" href="<?= App::path('/stats') ?>"  style="color: #cdd7e1">STATS</a>
                 </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="<?= App::path('/boosts') ?>"  style="color: #cdd7e1">BOOSTS</a>
+                </li>
               </ul>
               <span class="navbar-text" style="color: #cdd7e1"> 
                 ASSET TRACKING F1 CLASH
