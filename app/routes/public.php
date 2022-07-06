@@ -14,5 +14,7 @@ $routes->post('/home', [DriverController::class, 'index']);
 
 $routes->get('/stats', [StatsController::class, 'index']);
 
+$routes->get('/boosts', [BoostController::class, 'index']);
+
 // Check if valid route
 $routes->checkRoute();
